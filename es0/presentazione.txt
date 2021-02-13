@@ -1,0 +1,3 @@
+Sono Arash, un ragazzo curdo. Sono in Italia da circa 2 anni e sono laureato in ingegneria meccanica.
+In breve, insegnavo la lingua curda, lavoravo come commesso in un negozio di abbigliamento e come manager di una rivista mensile di ingegneria meccanica.
+Come programmatore, ho cercato di imparare Javascript e fare qualche piccolo progetto personale da solo come creare un music player e un quote generator.

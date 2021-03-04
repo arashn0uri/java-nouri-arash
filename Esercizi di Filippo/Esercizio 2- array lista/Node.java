@@ -68,6 +68,7 @@ public class Node extends List{
 
     @Override
     public boolean ordinata(int next) {
+        if(next == 0) next = this.value;
         if(this.value >= next)
             return this.next.ordinata(this.value);
         else
@@ -76,7 +77,7 @@ public class Node extends List{
 
     @Override
     public boolean ordinataCrescenteDecrescente(int next, int counter , int step) {
-        if (next == 0 && counter ==0 && step == 0) next = this.value;
+        if (next == 0 && counter == 0 && step == 0) next = this.value;
         if (this.value < next) {
             ++counter;
         }

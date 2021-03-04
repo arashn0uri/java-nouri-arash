@@ -3,10 +3,7 @@ package com.engim;
 public class Main {
 
     public static void main(String[] args) {
-        List l = new Node(1,new Node(4,new Node(10,new Nil())));
-        System.out.println(l);
-
-        l = new Node(25, l);
+        List l = new Node(25, new Node(1,new Node(4,new Node(10,new Nil()))));
         System.out.println(l);
 
         l = l.addLast(2);

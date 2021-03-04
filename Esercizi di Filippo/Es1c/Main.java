@@ -22,7 +22,7 @@ public class Main {
         }
         System.out.print("Thank you!");
         System.out.println();
-        // Create an array of random number from 1 to 3
+        // Create an array of random number from 1 to 3.
         int[] randomPattern = randomGenerator();
         // Create a password based on the random pattern
         int[] passwordBasedOnPattern = getPatternPassword(

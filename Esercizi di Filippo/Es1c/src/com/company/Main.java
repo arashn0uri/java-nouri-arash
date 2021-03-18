@@ -9,27 +9,28 @@ public class Main {
         // Take the main password from the user
         Scanner input = new Scanner(System.in);
         System.out.print("Please insert a new password (5 number, from 0 to 9): ");
-        int password = input.nextInt();
+        String password = input.next();
+        System.out.println(password);
         // Create an array from the password(int) to find the index of numbers
         int[] indexOfPassword = intToArray(password);
-        // Check the length of password which has to be exactly 5
+        // Check the length of the password which has to be exactly 5
         while (indexOfPassword.length != 5) {
             System.out.print(
                     "Wrong password! Please choose exactly 5 number (from 0 to 9): "
             );
-            password = input.nextInt();
+            password = input.next();
             indexOfPassword = intToArray(password);
         }
         System.out.print("Thank you!");
         System.out.println();
-        // Create an array of random number from 1 to 3.
+        // Create an array of random number from 1 to 3
         int[] randomPattern = randomGenerator();
         // Create a password based on the random pattern
         int[] passwordBasedOnPattern = getPatternPassword(
                 indexOfPassword,
                 randomPattern
         );
-        // transform the array of pattern password to a integer
+        // transform the array of pattern password to an integer
         int patternPassword = 0;
         for (int number : passwordBasedOnPattern) {
             patternPassword = (patternPassword * 10) + number;
@@ -57,12 +58,11 @@ public class Main {
         input.close();
     }
 
-    //a method to create an array from the characters of a integer
-    public static int[] intToArray(int number) {
-        String temporary = Integer.toString(number);
-        int[] password = new int[temporary.length()];
-        for (int index = 0; index < temporary.length(); index++) {
-            password[index] = temporary.charAt(index) - '0';
+    // Create an array from the characters of an integer
+    public static int[] intToArray(String pass) {
+        int[] password = new int[pass.length()];
+        for (int index = 0; index < pass.length(); index++) {
+            password[index] = pass.charAt(index) - '0';
         }
         return password;
     }

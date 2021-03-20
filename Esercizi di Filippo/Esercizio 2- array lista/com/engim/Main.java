@@ -3,10 +3,10 @@ package com.engim;
 public class Main {
 
     public static void main(String[] args) {
-        List l = new Node(25, new Node(1,new Node(4,new Node(10,new Nil()))));
+        List l = new Node(26, new Node(1,new Node(4,new Node(10,new Nil()))));
         System.out.println(l);
 
-        l = l.addLast(2);
+        l = l.addLast(4);
         System.out.println(l);
 
         l = l.add(24,1);
@@ -23,12 +23,13 @@ public class Main {
 
         boolean result = l.pari();
         System.out.println(result);
+//
+//        //ordinata crescente
+//        result = l.ordinata(0);
 
-        //ordinata crescente
-        result = l.ordinata(0);
-        System.out.println(result);
-
-        result = l.ordinataCrescenteDecrescente(0,0, 0);
-        System.out.println(result);
+//        System.out.println(result);
+//
+//        result = l.ordinataCrescenteDecrescente(0,0, 0);
+//        System.out.println(result);
     }
 }

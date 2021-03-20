@@ -19,17 +19,17 @@ public class Nil extends List{
 
     @Override
     public List remove(int x) {
-        return null;
+        return this;
     }
 
     @Override
     public List removeAtIndex(int i) {
-        return null;
+        return this;
     }
 
     @Override
     public List doppio() {
-        return new Nil();
+        return this;
     }
 
     @Override

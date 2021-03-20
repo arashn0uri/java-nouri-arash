@@ -1,5 +1,7 @@
 package com.engim;
 
+import com.sun.security.auth.module.UnixLoginModule;
+
 import javax.swing.*;
 
 public class Node extends List{
@@ -22,21 +24,23 @@ public class Node extends List{
         return this;
     }
 
+
     @Override
-    public List add(int x, int i) {
+    public List add(int x , int i) {
         if(i == 0) {
-            this.next = next.add(this.value, i);
+            this.next = next.add(this.value  , i);
             this.value = x;
         } else {
-            this.next = next.add(x, --i);
+            this.next = next.add(x , --i);
         }
         return this;
     }
 
+
     @Override
-    public List remove(int x) {
+    public List remove(int x ) {
         if(this.value == x)
-            return this.next;
+            return this.next.remove(x);
         else
             this.next = next.remove(x);
         return this;
@@ -61,10 +65,11 @@ public class Node extends List{
     @Override
     public boolean pari() {
         if (this.value % 2 == 0)
-            return next.pari();
+            return this.next.pari();
         else
             return false;
     }
+
 
     @Override
     public boolean ordinata(int next) {

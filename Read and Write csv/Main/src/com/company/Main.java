@@ -1,9 +1,6 @@
 package com.company;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -13,17 +10,15 @@ public class Main {
         HashMap<String,ArrayList<String>> infoPersone = new HashMap<>();
         HashMap<String,ArrayList<String>> infoMacchine = new HashMap<>();
 
-        infoPersone = readCSV("/Users/Arashn2y/Downloads/csv/reference/Persone.csv");
-        infoMacchine = readCSV("/Users/Arashn2y/Downloads/csv/reference/Macchine.csv");
-        System.out.println(infoPersone.toString());
-        System.out.println(infoMacchine.toString());
+        infoPersone = readCSV("/home/svilupposw1000/Scrivania/JAVA/Git/java-nouri-arash/Read and Write csv/reference/Persone.csv");
+        infoMacchine = readCSV("/home/svilupposw1000/Scrivania/JAVA/Git/java-nouri-arash/Read and Write csv/reference/Macchine.csv");
         for(String idPersona : infoPersone.keySet()) {
             for(String idMacchina : infoMacchine.keySet()) {
                 if(idPersona.equals(infoMacchine.get(idMacchina).get(1)))
                     infoMacchine.get(idMacchina).add(infoPersone.get(idPersona).get(0));
             }
         }
-        System.out.println(infoMacchine.toString());
+        createCSV(infoMacchine);
     }
 
     public static HashMap<String, ArrayList<String>> readCSV(String file) throws FileNotFoundException {
@@ -52,5 +47,40 @@ public class Main {
 
     private static boolean isNumeric(String str){
         return str != null && str.matches("[0-9.]+");
+    }
+
+    private static void createCSV(HashMap<String, ArrayList<String>> hashmapFile) throws FileNotFoundException {
+        try (PrintWriter writer = new PrintWriter(new File("/home/svilupposw1000/Scrivania/JAVA/Git/java-nouri-arash/Read and Write csv/reference/joinMacchinePersone.csv"))) {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("Id Auto");
+            stringBuilder.append(',');
+            stringBuilder.append(" Macchina");
+            stringBuilder.append(',');
+            stringBuilder.append(" Id proprietario");
+            stringBuilder.append(',');
+            stringBuilder.append(" Nome proprietario");
+            stringBuilder.append('\n');
+            for(String info : hashmapFile.keySet()) {
+                stringBuilder.append(info);
+                ArrayList<String> dataArrayList = new ArrayList<>();
+                dataArrayList = hashmapFile.get(info);
+                ArrayList<String> finalDataArrayList = dataArrayList;
+                stringBuilder.append(',');
+                dataArrayList.forEach(data -> {
+                    stringBuilder.append(data);
+                    if(data.equals(finalDataArrayList.get(finalDataArrayList.size() - 1)))
+                        stringBuilder.append(' ');
+                    else
+                        stringBuilder.append(',');
+                });
+                stringBuilder.append('\n');
+                }
+            writer.write(stringBuilder.toString());
+
+            System.out.println("done!");
+
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

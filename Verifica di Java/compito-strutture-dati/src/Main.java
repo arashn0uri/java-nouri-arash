@@ -21,7 +21,7 @@ public class Main {
         System.out.println(reverse); // questo deve stampare 3 2 4 1
         System.out.println(l.doubleValue()); // questo deve stampare 2 8 4 6
 
-        List l2 = new Node(1,new Node(4,new Node(2,new Node(3,new Nil()))));
+        List l2 = new Node(1,new Node(4,new Node(2,new Node(3,new Node(4, new Nil())))));
         System.out.println(l.equals(l2)); // questo deve stampare true
         System.out.println(l.equals(l.doubleValue())); // questo deve stampare false
     }

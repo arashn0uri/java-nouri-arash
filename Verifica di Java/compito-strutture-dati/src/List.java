@@ -13,5 +13,6 @@ public abstract class List {
 
     // ridefinire il metodo equals
     public abstract boolean equals(Object obj);
+
     public abstract List getNext();
 }

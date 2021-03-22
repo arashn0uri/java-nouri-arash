@@ -33,6 +33,8 @@ public class Nil extends List {
 
     @Override
     public boolean equals(Object obj) {
+        if( obj instanceof Node)
+            return false;
        return true;
     }
 
